@@ -1,0 +1,134 @@
+nlu:
+- intent: greet
+  examples: |
+    - Hi
+    - Hey!
+    - Hallo
+    - Good day
+    - Good morning
+
+- intent: affirm
+  examples: |
+    - yes
+    - yep
+    - yeah
+    - indeed
+    - that's right
+    - ok
+    - okay
+    - great
+    - right, thank you
+    - correct
+    - great choice
+    - sure
+    - uh-hun
+    - Good day
+    - sounds really good
+    - sure, why not!
+
+- intent: deny
+  example: |
+    - no
+    - never
+    - I don't think so
+    - no way
+    - no thanks
+    - not really
+    - no I dont
+    - not needed
+    - no need
+    - no I am good
+    - nope
+    - no thats fine 
+    - absolutely not
+    - dont worry
+
+- intent: thank
+  example: |
+    - okay great thanks
+    - thank you
+    - sure thanks
+    - thanks bye
+    - thanks
+
+- intent: goodbye
+  example: |
+    - bye
+    - goodbye
+    - good bye
+    - end
+    - ciao
+    - farewell
+    - Bye bye
+    - have a good one
+    - see you again
+
+- intent: inform_email
+  examples: |
+    - My email is example@example.com
+    - random@example.com
+    - Please send it to anything@example.com
+    - Email is something@example.com
+
+- intent: out_of_scope
+  example: |
+    - that's not what I want to do
+    - stop
+    - wait stop
+    - you are no help
+    - ths is no help at all
+    - how old are you?
+    - I want to order a pizza
+    - tell me the weather
+    - this isn't working
+    - I already told that
+    - dont like that
+    - I don't want to tell you that
+    - none of your business
+    - that's not right
+    - stop asking
+    - nevermind
+    - I want to do something else
+    - I changed my mind
+
+- intent: restaurant_search
+  example: |
+    - i'm looking for a place to eat
+    - I want to grab lunch
+    - find some restaurant 
+    - I am searching for a dinner spot
+    - I am looking for some restaurants in [Delhi](location).
+    - I am looking for some restaurants in [Bangalore](location)
+    - show me [chinese](cuisine) restaurants
+    - show me [chines](cuisine:chinese) restaurants in the [New Delhi](location:Delhi)
+    - show me a [mexican](cuisine) place in the [centre](location)
+    - i am looking for an [indian](cuisine) spot called olaolaolaolaolaola
+    - search for restaurants
+    - anywhere in the [west](location)
+    - I am looking for [asian fusion](cuisine) food
+    - I am looking a restaurant in [Chennai](location)
+    - In [Gurgaon](location)
+    - [South Indian](cuisine)
+    - [North Indian](cuisine)
+    - [Italian](cuisine)
+    - [Chinese](cuisine:chinese)
+    - [chinese](cuisine)
+    - [Lithuania](location)
+    - Oh, sorry, in [Italy](location)
+    - in [delhi](location)
+    - I am looking for some restaurants in [Mumbai](location)
+    - I am looking for [mexican indian fusion](cuisine)
+    - can you book a table in [rome](location) in a [moderate](price:mid) price range with [british](cuisine) food for [four](people:4) people
+    - [central](location) [indian](cuisine) restaurant
+    - please help me to find restaurants in [pune](location)
+    - Please find me a restaurantin [bangalore](location)
+    - [mumbai](location)
+    - [Chinese](cuisine:chinese)
+    - show me restaurants
+    - [mumbai](location)
+    - [Italian](cuisine)
+    - please find me [chinese](cuisine) restaurant in [delhi](location)
+    - can you find me a [chinese](cuisine) restaurant
+    - [delhi](location)
+    - please find me a restaurant in [ahmedabad](location)
+    - please show me a few [italian](cuisine) restaurants in [bangalore](location)

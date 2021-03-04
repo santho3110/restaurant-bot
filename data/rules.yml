@@ -1,0 +1,28 @@
+rules:
+ - rule: restaurant search form
+   steps:
+   - intent: restaurant_search
+   - action: restaurant_search_form
+   - active_loop: restaurant_search_form
+
+ - rule: restaurant search form
+   condition:
+   - active_loop: restaurant_search_form
+   steps:
+   - action: restaurant_search_form
+   - active_loop: null
+   - action: action_search_restaurants
+
+ - rule: email form
+   steps:
+   - intent: email_request
+   - action: email_request_form
+   - active_loop: email_request_form
+
+ - rule: submit email form
+   condition:
+   - active_loop: email_request_form
+   steps:
+   - action: email_request_form
+   - active_loop: null
+   - action: action_send_mail
