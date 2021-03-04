@@ -13,21 +13,31 @@ intents:
   - restaurant_search
   - out_of_scope
 
+entities:
+  - location
+  - cuisine
+  - email
+
+slots:
+  location:
+    - type: text
+      influence_conversation: false
+  cuisine:
+    - type: text
+      influence_conversation: false
+  email:
+    - type: unfeaturized
+      influence_conversation: false
+
 responses:
   utter_greet:
-    - text: |
-        Hello! How can I help you?
-    - text: |
-        Hi!
+    - text: Hello! How can I help you?
+    - text: Hi!
   utter_ask_location:
-    - text: |
-        And in which city you want me to find the resturants!
-    - text: |
-        Could you please provide the location name?
-    - text: |
-        And what city you are looking for?
-    - text: |
-        Please provide the city name. 
+    - text: And in which city you want me to find the resturants!
+    - text: Could you please provide the location name?
+    - text: And what city you are looking for?
+    - text: Please provide the city name. 
   utter_ask_cuisine:
   - buttons:
     - payload: Chinese
@@ -40,20 +50,14 @@ responses:
       title: North Indian
     text: what kind of cuisine would you like?
   utter_ask_confirm_email_request:
-    - text: |
-        Do you like to receive it in email?
-    - text: | 
-        Would you like to get the restaurant details to your email address?
+    - text: Do you like to receive it in email?
+    - text: Would you like to get the restaurant details to your email address?
   utter_ask_email:
-    - text: |
-        What is your email address?
-    - text: |
-        Your email id please!
+    - text: What is your email address?
+    - text: Your email id please!
   utter_email_sent:
-    - text: |
-        Check your inbox at {email} in order to view the details!
-    - text: |
-        You're all set! Check your inbox at {email} :)
+    - text: Check your inbox at {email} in order to view the details!
+    - text: You're all set! Check your inbox at {email} :)
   utter_affirm:
   - text: "You are welcome!"
   - text: "It's my pleasure :)"
@@ -84,20 +88,6 @@ forms:
     - type: from_text
       entity: email
 
-entities:
-  - location
-  - cuisine
-  - email
 
-slots:
-  location:
-    - type: text
-      influence_conversation: false
-  cuisine:
-    - type: text
-      influence_conversation: false
-  email:
-    - type: unfeaturized
-      influence_conversation: false
 
 
