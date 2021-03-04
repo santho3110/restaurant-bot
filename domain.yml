@@ -20,14 +20,14 @@ entities:
 
 slots:
   location:
-    - type: text
-      influence_conversation: false
+    type: text
+    influence_conversation: false
   cuisine:
-    - type: text
-      influence_conversation: false
+    type: text
+    influence_conversation: false
   email:
-    - type: unfeaturized
-      influence_conversation: false
+    type: unfeaturized
+    influence_conversation: false
 
 responses:
   utter_greet:
