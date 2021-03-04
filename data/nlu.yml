@@ -27,7 +27,7 @@ nlu:
     - sure, why not!
 
 - intent: deny
-  example: |
+  examples: |
     - no
     - never
     - I don't think so
@@ -44,7 +44,7 @@ nlu:
     - dont worry
 
 - intent: thank
-  example: |
+  examples: |
     - okay great thanks
     - thank you
     - sure thanks
@@ -52,7 +52,7 @@ nlu:
     - thanks
 
 - intent: goodbye
-  example: |
+  examples: |
     - bye
     - goodbye
     - good bye
@@ -71,7 +71,7 @@ nlu:
     - Email is something@example.com
 
 - intent: out_of_scope
-  example: |
+  examples: |
     - that's not what I want to do
     - stop
     - wait stop
@@ -92,8 +92,7 @@ nlu:
     - I changed my mind
 
 - intent: restaurant_search
-  example: |
+  examples: |
     - i'm looking for a place to eat
     - I want to grab lunch
     - find some restaurant
-    
