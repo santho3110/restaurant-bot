@@ -15,7 +15,7 @@ rules:
 
  - rule: email form
    steps:
-   - intent: email_request
+   - intent: inform_email
    - action: email_request_form
    - active_loop: email_request_form
 
@@ -25,4 +25,4 @@ rules:
    steps:
    - action: email_request_form
    - active_loop: null
-   - action: action_send_mail
+   - action: action_send_email

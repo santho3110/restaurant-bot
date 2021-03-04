@@ -40,11 +40,11 @@ class ValidateRestaurantSearchForm(FormValidationAction):
 
         if slot_value.lower() in WeOperate:
             # validation succeeded, set the value of the "location" slot to value
-            return {"cuisine": slot_value}
+            return {"location": slot_value}
         else:
             # validation failed, set this slot to None so that the
             # user will be asked for the slot again
-            return {"cuisine": None}
+            return {"location": None}
 
 def RestaurantSearch(city, cuisine, budget=None):
     TEMP = ZomatoData[ZomatoData.City.str.contains(city, case=False) & #Filter by city
@@ -79,7 +79,7 @@ class ActionSearchRestaurants(Action):
 
 class ActionSendMail(Action):
 	def name(self):
-		return 'action_send_mail'
+		return 'action_send_email'
 
 	def run(self, dispatcher, tracker, domain):
 		MailID = tracker.get_slot('email')

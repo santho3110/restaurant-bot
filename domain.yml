@@ -69,7 +69,7 @@ actions:
 - utter_greet
 - validate_restaurant_search_form
 - action_search_restaurants
-- action_send_mail
+- action_send_email
 - utter_ask_confirm_email_request
 - utter_email_sent
 - utter_affirm
