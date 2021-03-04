@@ -7,6 +7,7 @@ stories:
     - intent: restaurant_search
     - action: restaurant_search_form
     - active_loop: restaurant_search_form
+    - active_loop: null
     - action: utter_ask_confirm_email
     - intent: affirm
     - action: email_request_form
