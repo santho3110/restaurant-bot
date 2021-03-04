@@ -1,6 +1,6 @@
 stories:
 
-  - story: search for restaurant
+  - story: Full Path
     steps:
     - intent: greet
     - action: utter_greet
