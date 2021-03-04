@@ -79,14 +79,11 @@ forms:
   restaurant_search_form:
     location:
       - type: from_text
-        entity: location
     cuisine:
       - type: from_text
-        entity: cuisine
   email_request_form:
     email:
     - type: from_text
-      entity: email
 
 
 
