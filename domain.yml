@@ -49,7 +49,7 @@ responses:
     - payload: North Indian
       title: North Indian
     text: what kind of cuisine would you like?
-  utter_ask_confirm_email_request:
+  utter_ask_confirm_email:
     - text: Do you like to receive it in email?
     - text: Would you like to get the restaurant details to your email address?
   utter_ask_email:
@@ -70,7 +70,7 @@ actions:
 - validate_restaurant_search_form
 - action_search_restaurants
 - action_send_email
-- utter_ask_confirm_email_request
+- utter_ask_confirm_email
 - utter_email_sent
 - utter_affirm
 - utter_goodbye
