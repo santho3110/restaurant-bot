@@ -74,7 +74,7 @@ class ActionSearchRestaurants(Action):
 				restaurant = restaurant[1]
 				response=response + F"Found {restaurant['Restaurant Name']} in {restaurant['Address']} rated {restaurant['Address']} with avg cost {restaurant['Average Cost for two']} \n\n"
 				
-		dispatcher.utter_message("-----"+response)
+		dispatcher.utter_message("-----"+response+"----- \n Is it useful?")
 		return [SlotSet('location',loc)]
 
 class ActionSendMail(Action):

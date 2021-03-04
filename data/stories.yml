@@ -8,10 +8,12 @@ stories:
     - action: restaurant_search_form
     - active_loop: restaurant_search_form
     - active_loop: null
+    - intent: affirm
     - action: utter_ask_confirm_email
     - intent: affirm
     - action: email_request_form
     - active_loop: email_request_form
+    - active_loop: null
     - intent: thank
     - action: utter_affirm
     - intent: goodbye
