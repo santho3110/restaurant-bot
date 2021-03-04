@@ -9,7 +9,7 @@ stories:
     - active_loop: restaurant_search_form
     - action: utter_ask_confirm_email
     - intent: affirm
-    - active: email_request_form
+    - action: email_request_form
     - active_loop: email_request_form
     - intent: thank
     - action: utter_affirm
