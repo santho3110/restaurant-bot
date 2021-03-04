@@ -4,16 +4,16 @@ stories:
     steps:
     - intent: greet
     - action: utter_greet
-    - intent: resturant_search
-    - action: restaurant_search_form
-    - active_loop: restaurant_search_form
-    - action: utter_ask_confirm_email
-    - intent: affirm
-    - active: email_request_form
-    - active_loop: email_request_form
-    - intent: thank
-    - action: utter_affirm
-    - intent: goodbye
-    - action: utter_goodbye
+    # - intent: resturant_search
+    # - action: restaurant_search_form
+    # - active_loop: restaurant_search_form
+    # - action: utter_ask_confirm_email
+    # - intent: affirm
+    # - active: email_request_form
+    # - active_loop: email_request_form
+    # - intent: thank
+    # - action: utter_affirm
+    # - intent: goodbye
+    # - action: utter_goodbye
 
 
