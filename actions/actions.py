@@ -42,20 +42,21 @@ class ValidateRestaurantSearchForm(FormValidationAction):
             # validation succeeded, set the value of the "location" slot to value
             return {"location": slot_value}
         else:
+            dispatcher.utter_message(template="utter_not_available_location")
             # validation failed, set this slot to None so that the
             # user will be asked for the slot again
             return {"location": None}
 
 def RestaurantSearch(city, cuisine, budget=None):
-    TEMP = ZomatoData[ZomatoData.City.str.contains(city, case=False) & #Filter by city
+    Restaurants = ZomatoData[ZomatoData.City.str.contains(city, case=False) & #Filter by city
                       ZomatoData.Cuisines.str.contains(cuisine, case=False)] #Filter by cuisine
-    if len(TEMP):
-        TEMP = TEMP[['Restaurant Name','Address','Average Cost for two','Aggregate rating']]
+    if len(Restaurants):
+        Restaurants = Restaurants[['Restaurant Name','Address','Average Cost for two','Aggregate rating']]
         # Filter by budget
         # Sort by 'Aggregate rating'
-        TEMP = TEMP.sort_values(by='Aggregate rating', ascending=False)
+        Restaurants = Restaurants.sort_values(by='Aggregate rating', ascending=False)
         # Return top 5
-        return TEMP.head(5)
+        return Restaurants.head(5)
     return 
 
 class ActionSearchRestaurants(Action):

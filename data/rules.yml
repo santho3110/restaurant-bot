@@ -9,7 +9,8 @@ rules:
    condition:
    - active_loop: restaurant_search_form
    steps:
-   - action: restaurant_search_form
+   - intent: deny
+   - action: action_deactivate_loop
    - active_loop: null
    - action: action_search_restaurants
 

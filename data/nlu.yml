@@ -50,6 +50,7 @@ nlu:
     - sure thanks
     - thanks bye
     - thanks
+    - awesome
 
 - intent: goodbye
   examples: |

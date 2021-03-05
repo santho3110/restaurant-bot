@@ -38,6 +38,8 @@ responses:
     - text: Could you please provide the location name?
     - text: And what city you are looking for?
     - text: Please provide the city name. 
+  utter_not_available_location:
+    - text: Sorry! Currently we dont serve this location. Would you like to try with different City Name? 
   utter_ask_cuisine:
   - buttons:
     - payload: Chinese
@@ -68,6 +70,7 @@ actions:
 - '...'
 - utter_greet
 - validate_restaurant_search_form
+- utter_not_available_location
 - action_search_restaurants
 - action_send_email
 - utter_ask_confirm_email
