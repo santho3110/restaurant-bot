@@ -4,13 +4,13 @@ rules:
    - intent: restaurant_search
    - action: restaurant_search_form
    - active_loop: restaurant_search_form
+   - intent: deny
+   - action: action_deactivate_loop
 
  - rule: submit search form
    condition:
    - active_loop: restaurant_search_form
    steps:
-   - intent: deny
-   - action: action_deactivate_loop
    - active_loop: null
    - action: action_search_restaurants
 
