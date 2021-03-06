@@ -43,8 +43,8 @@ class ValidateRestaurantSearchForm(FormValidationAction):
             return {"location": slot_value}
         else:
             dispatcher.utter_message(template="utter_not_available_location")
-            [SlotSet(key,'') for key in ['cuisine']]
-            return {"location": slot_value}
+            
+            return [SlotSet(key,val) for key, val in {'cuisine':'Italian', 'location':slot_value}.items()]
 
 def RestaurantSearch(city, cuisine, budget=None):
     Restaurants = ZomatoData[ZomatoData.City.str.contains(city, case=False) & #Filter by city
