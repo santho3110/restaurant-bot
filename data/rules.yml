@@ -22,10 +22,10 @@ rules:
     - active_loop: null
     - action: utter_goodbye
 
-    - rule: Reactivate on affirm
-      condition:
-      - active_loop: restaurant_search_form
-      steps:
-      - intent: affirm
-      - action: restaurant_search_form
-      - active_loop: restaurant_search_form
+  - rule: Reactivate on affirm
+    condition:
+    - active_loop: restaurant_search_form
+    steps:
+    - intent: affirm
+    - action: restaurant_search_form
+    - active_loop: restaurant_search_form
