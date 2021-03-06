@@ -81,9 +81,15 @@ actions:
 forms:
   restaurant_search_form:
     location:
-      - type: from_text
+      - entity: location
+        type: from_entity
+      - intent: restaurant_search
+        type: from_text
     cuisine:
-      - type: from_text
+      - entity: cuisine
+        type: from_entity
+      - intent: restaurant_search
+        type: from_text
   email_request_form:
     email:
     - type: from_text

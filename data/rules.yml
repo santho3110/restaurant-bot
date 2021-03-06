@@ -14,6 +14,8 @@ rules:
     - action: action_send_email
 
   - rule: 
+    condition:
+    - active_loop: restaurant_search_form
     steps:
     - intent: deny
     - action: action_deactivate_form
