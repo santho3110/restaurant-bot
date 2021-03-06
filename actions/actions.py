@@ -44,7 +44,7 @@ class ValidateRestaurantSearchForm(FormValidationAction):
         else:
             dispatcher.utter_message(template="utter_not_available_location")
             
-            return {}
+            return {"location":None}
 
 def RestaurantSearch(city, cuisine, budget=None):
     Restaurants = ZomatoData[ZomatoData.City.str.contains(city, case=False) & #Filter by city
