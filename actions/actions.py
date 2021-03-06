@@ -45,7 +45,7 @@ class ValidateRestaurantSearchForm(FormValidationAction):
             dispatcher.utter_message(template="utter_not_available_location")
             # validation failed, set this slot to None so that the
             # user will be asked for the slot again
-            return self._deactivate()
+            return {"location": None}
 
 def RestaurantSearch(city, cuisine, budget=None):
     Restaurants = ZomatoData[ZomatoData.City.str.contains(city, case=False) & #Filter by city

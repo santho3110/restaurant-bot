@@ -1,27 +1,21 @@
 rules:
- - rule: restaurant search form
-   steps:
-   - intent: restaurant_search
-   - action: restaurant_search_form
-   - active_loop: restaurant_search_form
+  - rule: email form
+    steps:
+    - intent: inform_email
+    - action: email_request_form
+    - active_loop: email_request_form
 
- - rule: submit search form
-   condition:
-   - active_loop: restaurant_search_form
-   steps:
-   - active_loop: null
-   - action: action_search_restaurants
+  - rule: submit email form
+    condition:
+    - active_loop: email_request_form
+    steps:
+    - action: email_request_form
+    - active_loop: null
+    - action: action_send_email
 
- - rule: email form
-   steps:
-   - intent: inform_email
-   - action: email_request_form
-   - active_loop: email_request_form
-
- - rule: submit email form
-   condition:
-   - active_loop: email_request_form
-   steps:
-   - action: email_request_form
-   - active_loop: null
-   - action: action_send_email
+  - rule: 
+    steps:
+    - intent: deny
+    - action: action_deactivate_form
+    - active_loop: null
+    - action: utter_goodbye

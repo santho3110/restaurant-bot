@@ -22,3 +22,9 @@ stories:
     - action: utter_goodbye
 
 
+  - story: Deny Path
+    steps:
+    - intent: deny
+    - action: action_deactivate_form
+    - active_loop: null
+    - action: utter_goodbye
