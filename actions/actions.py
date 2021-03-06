@@ -37,15 +37,14 @@ class ValidateRestaurantSearchForm(FormValidationAction):
         domain: DomainDict,
     ) -> Dict[Text, Any]:
         """Validate location value."""
-
+        
         if slot_value.lower() in WeOperate:
             # validation succeeded, set the value of the "location" slot to value
             return {"location": slot_value}
         else:
             dispatcher.utter_message(template="utter_not_available_location")
-            # validation failed, set this slot to None so that the
-            # user will be asked for the slot again
-            return {"location": None}
+            [SlotSet(key,'') for key in ['cuisine']]
+            return {"location": slot_value}
 
 def RestaurantSearch(city, cuisine, budget=None):
     Restaurants = ZomatoData[ZomatoData.City.str.contains(city, case=False) & #Filter by city
