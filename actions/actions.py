@@ -19,27 +19,22 @@ ZomatoData = pd.read_csv('zomato.csv')
 ZomatoData = ZomatoData.drop_duplicates().reset_index(drop=True)
 WeOperate = {city.lower() for city in ZomatoData.City.unique()}
 
-class ValidateRestaurantSearchForm(FormValidationAction):
+class ValidateRestaurantSearchForm(Action):
     def name(self) -> Text:
         return "validate_restaurant_search_form"
 
-    def validate_location(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-    ) -> Dict[Text, Any]:
+    def run(self, dispatcher, tracker, domain):
+        location = tracker.get_slot('location')
         """Validate location value."""
         
-        if slot_value.lower() in WeOperate:
+        if location.lower() in WeOperate:
             # validation succeeded, set the value of the "location" slot to value
-            return {"location": slot_value}
+            return [SlotSet('location',location)]
         else:
             dispatcher.utter_message(template="utter_not_available_location")
             
-            FollowupAction(name = "action_listen")
-            return {"location":None}
+            
+            return [SlotSet('location',location), FollowupAction(name = "action_listen")]
 
 def RestaurantSearch(city, cuisine, budget=None):
     Restaurants = ZomatoData[ZomatoData.City.str.contains(city, case=False) & #Filter by city
