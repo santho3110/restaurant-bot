@@ -29,3 +29,24 @@ rules:
     - intent: affirm
     - action: restaurant_search_form
     - active_loop: restaurant_search_form
+
+  - rule: Handle out of scope
+    condition:
+    - active_loop: restaurant_search_form
+    steps:
+    - intent: out_of_scope
+    - action: utter_ask_continue
+    - intent: affirm
+    - action: action_deactivate_form
+    - active_loop: null
+    - action: utter_goodbye
+
+  - rule: Handle out of scope continue
+    condition:
+    - active_loop: restaurant_search_form
+    steps:
+    - intent: out_of_scope
+    - action: utter_ask_quit
+    - intent: deny
+    - action: restaurant_search_form
+    - active_loop: restaurant_search_form

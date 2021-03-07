@@ -30,7 +30,7 @@ slots:
 responses:
   utter_greet:
     - text: Hello! How can I help you?
-    - text: Hi!
+    - text: Hi, I'm Restro Bot! How can I help you?
   utter_ask_location:
     - text: Location? 
   utter_not_available_location:
@@ -56,10 +56,16 @@ responses:
     - text: Check your inbox at {email} in order to view the details!
     - text: You're all set! Check your inbox at {email} :)
   utter_affirm:
-  - text: "You are welcome!"
-  - text: "It's my pleasure :)"
+    - text: "You are welcome!"
+    - text: "It's my pleasure :)"
+  utter_aknowledge:
+    - text: "Ok, Nice talking to you"
+    - text: "sure, thankyou!"
+  utter_ask_quit:
+    - text: "Don't you wanna continue?"
+    - text: "Do you wanna Quit?"
   utter_goodbye:
-  - text: "See you again. Bye!"
+    - text: "See you again. Bye!"
 
 actions:
 - '...'

@@ -20,3 +20,20 @@ stories:
     - action: utter_affirm
     - intent: goodbye
     - action: utter_goodbye
+
+
+  - story: Full Path Dont Send Email
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: restaurant_search
+    - action: restaurant_search_form
+    - active_loop: restaurant_search_form
+    - active_loop: null
+    - action: action_search_restaurants
+    - intent: affirm
+    - action: utter_ask_confirm_email
+    - intent: deny
+    - action: utter_aknowledge
+    - intent: goodbye
+    - action: utter_goodbye

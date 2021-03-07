@@ -31,7 +31,9 @@ class ValidateRestaurantSearchForm(FormValidationAction):
         domain: DomainDict,
     ) -> Dict[Text, Any]:
         """Validate location value."""
-        
+
+        if isinstance(slot_value, (list, tuple)):
+            slot_value = ' '.join(slot_value)
         if slot_value.lower() in WeOperate:
             # validation succeeded, set the value of the "location" slot to value
             return {"location": slot_value}
@@ -61,7 +63,7 @@ class ActionSearchRestaurants(Action):
 		results = RestaurantSearch(city=loc,cuisine=cuisine)
 		response=""
 		if results.shape[0] == 0:
-			response= "no results"
+			response= "ooow... Couldn't find anything for your expectation."
 		else:
 			for restaurant in RestaurantSearch(loc,cuisine).iloc[:5].iterrows():
 				restaurant = restaurant[1]
