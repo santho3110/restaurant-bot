@@ -2,7 +2,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import unicode_literals
 
-from typing import Text, List, Any, Dict
+from typing import Text, List, Any, Dict, Optional
 
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
@@ -23,29 +23,46 @@ class ValidateRestaurantSearchForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_restaurant_search_form"
 
-    @staticmethod
-    def cuisine_db() -> List[Text]:
-        """Database of supported cuisines"""
+    def __init__(self):
+        self.LOCATION_FOUND = True
 
-        return ["caribbean", "chinese", "french"]
-
-    def validate_location(
+    async def validate_location(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
         domain: DomainDict,
-    ):
+    ) -> Dict[Text, Any]:
         """Validate location value."""
         
         if slot_value.lower() in WeOperate:
             # validation succeeded, set the value of the "location" slot to value
+            self.LOCATION_FOUND = True
             return {"location": slot_value}
         else:
-            SlotSet('email','Billa')
-            print(tracker.get_slot('email'))
-            dispatcher.utter_message(template="utter_ask_location", email='Billa')
-            return [{"location": None}, {'email': 'Gilli'}]
+            dispatcher.utter_message(template="utter_not_available_location")
+            self.LOCATION_FOUND = False
+            return {"location": None}
+
+    async def required_slots(
+        self,
+        slots_mapped_in_domain: List[Text],
+        dispatcher: "CollectingDispatcher",
+        tracker: "Tracker",
+        domain: "DomainDict",
+    ) -> Optional[List[Text]]:
+        if not self.LOCATION_FOUND:
+            return slots_mapped_in_domain + ["availability"]
+        return slots_mapped_in_domain
+
+    async def extract_outdoor_seating(
+        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
+    ) -> Dict[Text, Any]:
+        # text_of_last_user_message = tracker.latest_message.get("text")
+        if self.LOCATION_FOUND:
+            return {"availability": "Available"}
+        else:
+            return {"availability": None}
 
 def RestaurantSearch(city, cuisine, budget=None):
     Restaurants = ZomatoData[ZomatoData.City.str.contains(city, case=False) & #Filter by city
