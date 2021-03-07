@@ -21,8 +21,10 @@ entities:
 slots:
   location:
     type: text
+    influence_conversation: false
   cuisine:
     type: text
+    influence_conversation: false
   email:
     type: text
     influence_conversation: false
