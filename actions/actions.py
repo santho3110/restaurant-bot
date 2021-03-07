@@ -23,18 +23,23 @@ class ValidateRestaurantSearchForm(Action):
     def name(self) -> Text:
         return "validate_restaurant_search_form"
 
-    def run(self, dispatcher, tracker, domain):
-        location = tracker.get_slot('location')
+    def validate_location(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ):
         """Validate location value."""
         
-        if location.lower() in WeOperate:
+        if slot_value.lower() in WeOperate:
             # validation succeeded, set the value of the "location" slot to value
-            return [SlotSet('location',location)]
+            return [SlotSet('location',slot_value)]
         else:
             dispatcher.utter_message(template="utter_not_available_location")
             
             
-            return [SlotSet('location',location), FollowupAction(name = "action_listen")]
+            return [SlotSet('location',slot_value), FollowupAction(name = "action_listen")]
 
 def RestaurantSearch(city, cuisine, budget=None):
     Restaurants = ZomatoData[ZomatoData.City.str.contains(city, case=False) & #Filter by city
