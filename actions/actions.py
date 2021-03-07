@@ -7,7 +7,7 @@ from typing import Text, List, Any, Dict
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
-from rasa_sdk.events import SlotSet, FollowupAction
+from rasa_sdk.events import SlotSet
 
 import base64 
 import smtplib, ssl
@@ -19,9 +19,15 @@ ZomatoData = pd.read_csv('zomato.csv')
 ZomatoData = ZomatoData.drop_duplicates().reset_index(drop=True)
 WeOperate = {city.lower() for city in ZomatoData.City.unique()}
 
-class ValidateRestaurantSearchForm(Action):
+class ValidateRestaurantSearchForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_restaurant_search_form"
+
+    @staticmethod
+    def cuisine_db() -> List[Text]:
+        """Database of supported cuisines"""
+
+        return ["caribbean", "chinese", "french"]
 
     def validate_location(
         self,
@@ -29,17 +35,16 @@ class ValidateRestaurantSearchForm(Action):
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
         domain: DomainDict,
-    ):
+    ) -> Dict[Text, Any]:
         """Validate location value."""
         
         if slot_value.lower() in WeOperate:
             # validation succeeded, set the value of the "location" slot to value
-            return [SlotSet('location',slot_value)]
+            return {"location": slot_value}
         else:
             dispatcher.utter_message(template="utter_not_available_location")
-            
-            
-            return [SlotSet('location',slot_value), FollowupAction(name = "action_listen")]
+            SlotSet('email','Billa')
+            return {"location": None}
 
 def RestaurantSearch(city, cuisine, budget=None):
     Restaurants = ZomatoData[ZomatoData.City.str.contains(city, case=False) & #Filter by city

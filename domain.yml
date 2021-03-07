@@ -26,7 +26,7 @@ slots:
     type: text
     influence_conversation: false
   email:
-    type: unfeaturized
+    type: text
     influence_conversation: false
 
 responses:
@@ -34,10 +34,7 @@ responses:
     - text: Hello! How can I help you?
     - text: Hi!
   utter_ask_location:
-    - text: In which city you want me to find the resturants!
-    - text: Could you provide the location name?
-    - text: What city you are looking for?
-    - text: Please provide the city name. 
+    - text: Please provide the {email} city name. 
   utter_not_available_location:
     - text: Sorry! Currently we dont serve this location. Would you like to try with different City Name? 
   utter_ask_cuisine:
