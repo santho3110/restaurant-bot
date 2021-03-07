@@ -135,29 +135,35 @@ nlu:
     - please show me a few [italian](cuisine) restaurants in [bangalore](location)
 
 - synonym: Delhi
-  - New Delhi
-  - Dilli
+  examples: |
+    - New Delhi
+    - Dilli
 
 - synonym: bangalore
-  - Bengaluru
-  - Banglore
+  examples: |
+    - Bengaluru
+    - Banglore
 
 - synonym: chennai
-  - madras
+  examples: |
+    - madras
 
 - synonym: chinese
-  - chines
-  - Chinese
-  - Chines
+  examples: |
+    - chines
+    - Chinese
+    - Chines
 
 - synonym: mid
-  - moderate
-  - avg
+  examples: |
+    - moderate
+    - avg
 
 - synonym: vegetarian
-  - veggie
-  - vegg
-  - veg
+  examples: |
+    - veggie
+    - vegg
+    - veg
 
 - lookup: location
   examples: |
