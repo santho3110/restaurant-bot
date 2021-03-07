@@ -42,9 +42,9 @@ class ValidateRestaurantSearchForm(FormValidationAction):
             # validation succeeded, set the value of the "location" slot to value
             return {"location": slot_value}
         else:
-            DomainDict['responses']['utter_ask_location'] = [{'text': 'A new one really!'}]
-            dispatcher.utter_message(template="utter_not_available_location")
             SlotSet('email','Billa')
+            print(tracker.get_slot('email'))
+            dispatcher.utter_message(template="utter_not_available_location", email='Billa')
             return {"location": None}
 
 def RestaurantSearch(city, cuisine, budget=None):
