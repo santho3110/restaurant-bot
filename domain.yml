@@ -34,11 +34,9 @@ responses:
     - text: Hello! How can I help you?
     - text: Hi!
   utter_ask_location:
-    - text: Please provide the {email} city name. 
-  utter_ask_availability:
-    - text: Not Available
+    - text: Location? 
   utter_not_available_location:
-    - text: Sorry! Currently we dont serve this location. Would you like to try with different City Name {email} ? 
+    - text: Sorry! Currently we dont serve this location. Would you like to try with different.. 
   utter_ask_cuisine:
   - buttons:
     - payload: Chinese

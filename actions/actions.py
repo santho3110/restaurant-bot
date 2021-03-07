@@ -23,9 +23,6 @@ class ValidateRestaurantSearchForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_restaurant_search_form"
 
-    def __init__(self):
-        self.LOCATION_FOUND = True
-
     async def validate_location(
         self,
         slot_value: Any,
@@ -37,32 +34,10 @@ class ValidateRestaurantSearchForm(FormValidationAction):
         
         if slot_value.lower() in WeOperate:
             # validation succeeded, set the value of the "location" slot to value
-            self.LOCATION_FOUND = True
             return {"location": slot_value}
         else:
             dispatcher.utter_message(template="utter_not_available_location")
-            self.LOCATION_FOUND = False
             return {"location": None}
-
-    async def required_slots(
-        self,
-        slots_mapped_in_domain: List[Text],
-        dispatcher: "CollectingDispatcher",
-        tracker: "Tracker",
-        domain: "DomainDict",
-    ) -> Optional[List[Text]]:
-        if not self.LOCATION_FOUND:
-            return slots_mapped_in_domain + ["availability"]
-        return slots_mapped_in_domain
-
-    async def extract_outdoor_seating(
-        self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict
-    ) -> Dict[Text, Any]:
-        # text_of_last_user_message = tracker.latest_message.get("text")
-        if self.LOCATION_FOUND:
-            return {"availability": "Available"}
-        else:
-            return {"availability": None}
 
 def RestaurantSearch(city, cuisine, budget=None):
     Restaurants = ZomatoData[ZomatoData.City.str.contains(city, case=False) & #Filter by city
@@ -105,7 +80,7 @@ class ActionSendMail(Action):
 		cuisine = tracker.get_slot('cuisine')
 		results = RestaurantSearch(city=loc,cuisine=cuisine)
 		sendmail(MailID, results)
-		dispatcher.utter_message("----Email has been sent----")
+		dispatcher.utter_message(template="utter_email_sent")
 		return [SlotSet('email',MailID)]
 
 
