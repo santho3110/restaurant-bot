@@ -44,7 +44,7 @@ class ValidateRestaurantSearchForm(FormValidationAction):
         else:
             SlotSet('email','Billa')
             print(tracker.get_slot('email'))
-            dispatcher.utter_message(template="utter_not_available_location", email='Billa')
+            dispatcher.utter_message(template="utter_ask_location", email='Billa')
             return {"location": None}
 
 def RestaurantSearch(city, cuisine, budget=None):
