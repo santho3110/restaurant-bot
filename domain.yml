@@ -34,9 +34,9 @@ responses:
     - text: Hello! How can I help you?
     - text: Hi!
   utter_ask_location:
-    - text: And in which city you want me to find the resturants!
-    - text: Could you please provide the location name?
-    - text: And what city you are looking for?
+    - text: In which city you want me to find the resturants!
+    - text: Could you provide the location name?
+    - text: What city you are looking for?
     - text: Please provide the city name. 
   utter_not_available_location:
     - text: Sorry! Currently we dont serve this location. Would you like to try with different City Name? 

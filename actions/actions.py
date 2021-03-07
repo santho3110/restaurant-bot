@@ -23,12 +23,6 @@ class ValidateRestaurantSearchForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_restaurant_search_form"
 
-    @staticmethod
-    def cuisine_db() -> List[Text]:
-        """Database of supported cuisines"""
-
-        return ["caribbean", "chinese", "french"]
-
     def validate_location(
         self,
         slot_value: Any,
@@ -44,6 +38,7 @@ class ValidateRestaurantSearchForm(FormValidationAction):
         else:
             dispatcher.utter_message(template="utter_not_available_location")
             
+            dispatcher.utter_message(template="utter_ask_location", text="Not a Location!")
             return {"location":None}
 
 def RestaurantSearch(city, cuisine, budget=None):
