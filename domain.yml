@@ -62,8 +62,8 @@ responses:
     - text: "Ok, Nice talking to you"
     - text: "sure, thankyou!"
   utter_ask_quit:
-    - text: "Don't you wanna continue?"
-    - text: "Do you wanna Quit?"
+    - text: "Do you wanna continue?"
+    - text: "Do you wanna continue the search?"
   utter_goodbye:
     - text: "See you again. Bye!"
 
