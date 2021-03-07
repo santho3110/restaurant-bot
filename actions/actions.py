@@ -35,7 +35,7 @@ class ValidateRestaurantSearchForm(FormValidationAction):
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
         domain: DomainDict,
-    ) -> Dict[Text, Any]:
+    ):
         """Validate location value."""
         
         if slot_value.lower() in WeOperate:
@@ -45,8 +45,8 @@ class ValidateRestaurantSearchForm(FormValidationAction):
             SlotSet('email','Billa')
             print(tracker.get_slot('email'))
             dispatcher.utter_message(template="utter_ask_location", email='Billa')
-            return {"location": None}
-
+            return [SlotSet('location',slot_value)]
+            
 def RestaurantSearch(city, cuisine, budget=None):
     Restaurants = ZomatoData[ZomatoData.City.str.contains(city, case=False) & #Filter by city
                       ZomatoData.Cuisines.str.contains(cuisine, case=False)] #Filter by cuisine
