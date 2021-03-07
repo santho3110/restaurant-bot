@@ -45,8 +45,8 @@ class ValidateRestaurantSearchForm(FormValidationAction):
             SlotSet('email','Billa')
             print(tracker.get_slot('email'))
             dispatcher.utter_message(template="utter_ask_location", email='Billa')
-            return [SlotSet('location',slot_value)]
-            
+            return [{"location": slot_value}, {'email': 'Gilli'}]
+
 def RestaurantSearch(city, cuisine, budget=None):
     Restaurants = ZomatoData[ZomatoData.City.str.contains(city, case=False) & #Filter by city
                       ZomatoData.Cuisines.str.contains(cuisine, case=False)] #Filter by cuisine
