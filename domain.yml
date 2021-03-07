@@ -61,7 +61,7 @@ responses:
   utter_aknowledge:
     - text: "Ok, Nice talking to you"
     - text: "sure, thankyou!"
-  utter_ask_quit:
+  utter_ask_continue:
     - text: "Do you wanna continue?"
     - text: "Do you wanna continue the search?"
   utter_goodbye:
@@ -78,6 +78,7 @@ actions:
 - utter_email_sent
 - utter_affirm
 - utter_goodbye
+- utter_ask_continue
 
 forms:
   restaurant_search_form:
