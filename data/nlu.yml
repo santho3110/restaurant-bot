@@ -106,12 +106,15 @@ nlu:
     - show me a [mexican](cuisine) place in the [centre](location)
     - i am looking for an [indian](cuisine) spot called olaolaolaolaolaola
     - search for restaurants
-    - anywhere in the [west](location)
+    - anywhere in the [Chennai](location)
+    - anywhere in the [Canada](location)
     - I am looking for [asian fusion](cuisine) food
     - I am looking a restaurant in [Chennai](location)
     - in [Gurgaon](location)
+    - in [London](location)
     - [South Indian](cuisine)
     - [North Indian](cuisine)
+    - in [Australia](location)
     - [Italian](cuisine)
     - [Chinese](cuisine:chinese)
     - [chinese](cuisine)
@@ -134,3 +137,83 @@ nlu:
     - please find me a restaurant in [ahmedabad](location)
     - please show me a few [italian](cuisine) restaurants in [bangalore](location)
 
+- synonym: Delhi
+  examples: |
+    - New Delhi
+    - Dilli
+
+- synonym: bangalore
+  examples: |
+    - Bengaluru
+    - Banglore
+
+- synonym: chennai
+  examples: |
+    - madras
+
+- synonym: chinese
+  examples: |
+    - chines
+    - Chinese
+    - Chines
+
+- synonym: mid
+  examples: |
+    - moderate
+    - avg
+
+- synonym: vegetarian
+  examples: |
+    - veggie
+    - vegg
+    - veg
+
+- lookup: location
+  examples: |
+    - Agra
+    - Ahmedabad
+    - Allahabad
+    - Amritsar
+    - Aurangabad
+    - Bangalore
+    - Bhopal
+    - Bhubaneshwar
+    - Chandigarh
+    - Chennai
+    - Coimbatore
+    - Dehradun
+    - Faridabad
+    - Gangtok
+    - Ghaziabad
+    - Goa
+    - Gurgaon
+    - Guwahati
+    - Hyderabad
+    - Indore
+    - Jaipur
+    - Kanpur
+    - Kochi
+    - Kolkata
+    - Lucknow
+    - Ludhiana
+    - Mangalore
+    - Mohali
+    - Mumbai
+    - Mysore
+    - Nagpur
+    - Nashik
+    - Nasik
+    - Delhi
+    - Noida
+    - Ooty
+    - Panchkula
+    - Patna
+    - Puducherry
+    - Pune
+    - Ranchi
+    - Secunderabad
+    - Shimla
+    - Surat
+    - Vadodara
+    - Varanasi
+    - Vizag
