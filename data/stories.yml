@@ -36,6 +36,6 @@ stories:
     - action: utter_ask_confirm_email
     - intent: deny
     - action: utter_aknowledge
+    - action: action_restart
     - intent: goodbye
     - action: utter_goodbye
-    - action: action_restart
