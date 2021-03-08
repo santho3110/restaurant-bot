@@ -21,6 +21,7 @@ rules:
     - action: action_deactivate_form
     - active_loop: null
     - action: utter_goodbye
+    - action: action_restart
 
   - rule: Reactivate on affirm
     condition:

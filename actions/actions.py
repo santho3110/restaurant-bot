@@ -18,6 +18,7 @@ from email.mime.multipart import MIMEMultipart
 ZomatoData = pd.read_csv('zomato.csv')
 ZomatoData = ZomatoData.drop_duplicates().reset_index(drop=True)
 WeOperate = {city.lower() for city in ZomatoData.City.unique()}
+WeOperate.add('delhi')
 
 class ValidateRestaurantSearchForm(FormValidationAction):
     def name(self) -> Text:
@@ -46,7 +47,10 @@ def RestaurantSearch(city, cuisine, budget=None):
                       ZomatoData.Cuisines.str.contains(cuisine, case=False)] #Filter by cuisine
     if len(Restaurants):
         Restaurants = Restaurants[['Restaurant Name','Address','Average Cost for two','Aggregate rating']]
-        # Filter by budget
+        if budget: #Filter by budget
+            _from = budget[0] if budget[0] else ZomatoData['Average Cost for two'].min()
+            _to = budget[1] if budget[1] else ZomatoData['Average Cost for two'].max()
+            ZomatoData[ZomatoData['Average Cost for two'].between(_from, _to, inclusive = True)]
         # Sort by 'Aggregate rating'
         Restaurants = Restaurants.sort_values(by='Aggregate rating', ascending=False)
         # Return top 5
@@ -131,15 +135,3 @@ def sendmail(mail_id, content):
         server.sendmail(
             sender_email, receiver_email, message.as_string())
 
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []

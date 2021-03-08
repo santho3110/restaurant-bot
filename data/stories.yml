@@ -20,6 +20,7 @@ stories:
     - action: utter_affirm
     - intent: goodbye
     - action: utter_goodbye
+    - action: action_restart
 
 
   - story: Full Path Dont Send Email
@@ -37,3 +38,4 @@ stories:
     - action: utter_aknowledge
     - intent: goodbye
     - action: utter_goodbye
+    - action: action_restart

@@ -75,8 +75,11 @@ nlu:
   examples: |
     - that's not what I want to do
     - stop
+    - just stop
     - end
+    - just end
     - quit
+    - I wanna quitttt
     - wait stop
     - you are no help
     - ths is no help at all
@@ -104,6 +107,7 @@ nlu:
     - show me [chinese](cuisine) restaurants
     - show me [chines](cuisine:chinese) restaurants in the [New Delhi](location:Delhi)
     - show me a [mexican](cuisine) place in the [centre](location)
+    - show me a [indian](cuisine) place in the [Berlin](location)
     - i am looking for an [indian](cuisine) spot called olaolaolaolaolaola
     - search for restaurants
     - anywhere in the [Chennai](location)

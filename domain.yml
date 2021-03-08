@@ -16,6 +16,7 @@ intents:
 entities:
   - location
   - cuisine
+  - budget
   - email
 
 slots:
@@ -23,6 +24,9 @@ slots:
     type: text
     influence_conversation: false
   cuisine:
+    type: text
+    influence_conversation: false
+  budget:
     type: text
     influence_conversation: false
   email:
